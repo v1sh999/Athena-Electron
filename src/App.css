@@ -86,6 +86,14 @@ body {
 .permission-item {
   display: grid;
 
+  width: 100%;
+  max-width: 920px;
+
+  background: #ffffff;
+
+  border: 1px solid #e7e4df;
+  border-radius: 12px;
+
   grid-template-columns: 42px 1fr;
 
   column-gap: 26px;
