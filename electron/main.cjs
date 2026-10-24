@@ -1,9 +1,12 @@
 const { app, BrowserWindow } = require('electron')
-
+let win = null;
 const createWindow = () => {
-  const win = new BrowserWindow({
+  win = new BrowserWindow({
     width: 800,
-    height: 600
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, "preload.cjs"),
+    }
   })
 
   win.loadURL('http://localhost:5173/')
