@@ -1,5 +1,5 @@
-const { app, BrowserWindow,ipcMain } = require('electron')
-const path = require('path')
+const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('path');
 
 let win = null;
 const createWindow = () => {
@@ -12,8 +12,12 @@ const createWindow = () => {
   })
 
   win.loadURL('http://localhost:5173/')
-}
+};
+
+ipcMain.handle("full-screen", () => {
+  win.kiosk = true;
+});
 
 app.whenReady().then(() => {
   createWindow()
-})
+});
