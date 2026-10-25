@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
+const fs = require('fs')
 
 let win = null;
 
@@ -30,6 +31,13 @@ ipcMain.handle('show-rules',()=>{
     `,
     buttons: ["Accept","Cancel"],
   });
+});
+
+ipcMain.handle('save-photo',(event,arrayBuffer)=>{
+  const filePath = path.join(__dirname,'captures',`photo - ${Date.now()}.jpeg`)
+  const buffer = Buffer.from(arrayBuffer)
+
+  fs.writeFileSync(filePath,buffer)
 });
 
 app.whenReady().then(() => {
