@@ -5,5 +5,6 @@ contextBridge.exposeInMainWorld('electronAPI',{
     setFullScreen: () => ipcRenderer.invoke("full-screen"),
     showRules: () => ipcRenderer.invoke('show-rules'),
     savePhoto: (arrayBuffer) => ipcRenderer.invoke('save-photo', arrayBuffer),
+    getRemainingTime:() => ipcRenderer.invoke('get-time'),
 
 });
