@@ -447,3 +447,10 @@ appearing in the layout.
 
   cursor: not-allowed;
 }
+.test-started {
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 0;
+}

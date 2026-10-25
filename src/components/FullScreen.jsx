@@ -1,6 +1,6 @@
 import getFullscreen from "../utils/FullscreenUtils";
 
-export default function FullScreenContainer(){
+export default function FullScreenContainer({setFullScreen}){
     return (
       <div className="card-container">
           
@@ -17,7 +17,7 @@ export default function FullScreenContainer(){
 
               <p>Kindly close all tabs and switch to full screen.</p>
 
-              <button  onClick={getFullscreen} className="btn btn-light-blue">
+              <button  onClick={() => getFullscreen(setFullScreen)} className="btn btn-light-blue">
                 Give Full Screen Permissions
               </button>
             </div>

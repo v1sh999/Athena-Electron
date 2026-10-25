@@ -1,4 +1,4 @@
-import {useState,useEffect,useRef} from 'react'
+import {useState,useRef} from 'react'
 import CameraContainer from './components/Camera';
 import FullScreenContainer from './components/FullScreen';
 import BottomActions from './components/Actions';
@@ -9,7 +9,8 @@ function App() {
   const videoRef = useRef(null);
   const imageCaptureRef = useRef(null);
   const [cameraReady,setCameraReady]=useState(false);
-  
+  const [started,setStarted] = useState(false)
+  const [fullscreen,setFullScreen] = useState(false)
   return (
     <>
       <video
@@ -26,9 +27,9 @@ function App() {
         </div>
         
         <CameraContainer videoRef={videoRef} imageCaptureRef={imageCaptureRef} cameraReady={cameraReady} setCameraReady={setCameraReady}/>
-        <FullScreenContainer />
+        <FullScreenContainer setFullScreen={setFullScreen}/>
 
-        <BottomActions />
+        <BottomActions started={started} setStarted={setStarted} fullscreen={fullscreen} cameraReady={cameraReady}/>
 
         <TimerContaianer />
       </div>
