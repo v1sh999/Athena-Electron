@@ -16,7 +16,7 @@ const createWindow = () => {
   win.loadURL('http://localhost:5173/')
 };
 
-let end_time = Date.now() + 60 * 60 * 60;
+let end_time = Date.now() + 60 * 60 * 1000
 ipcMain.handle("get-time", () => {
   return end_time - Date.now();
 });

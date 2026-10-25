@@ -1,3 +1,4 @@
+import {useState,useEffect,useRef} from 'react'
 import CameraContainer from './components/Camera';
 import FullScreenContainer from './components/FullScreen';
 import BottomActions from './components/Actions';
@@ -5,15 +6,18 @@ import TimerContaianer from './components/Timer';
 import "./App.css";
 
 function App() {
+  const videoRef = useRef(null);
+  const imageCaptureRef = useRef(null);
+  const [cameraReady,setCameraReady]=useState(false);
   
   return (
     <>
-      {/* <video
+      <video
         ref={videoRef}
         autoPlay
         muted
-        className={cameraReady && !started ? "video-preview" : "hidden-video"}
-      /> */}
+        className={cameraReady ? "video-preview" : "hidden-video"}
+      />
 
       <div className="page-container">
         <div className="header-section">
@@ -21,7 +25,7 @@ function App() {
           <p>Kindly Allow the following Permissions to Start the test:</p>
         </div>
         
-        <CameraContainer />
+        <CameraContainer videoRef={videoRef} imageCaptureRef={imageCaptureRef} cameraReady={cameraReady} setCameraReady={setCameraReady}/>
         <FullScreenContainer />
 
         <BottomActions />

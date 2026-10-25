@@ -1,8 +1,5 @@
-import {useState,useEffect,useRef} from 'react'
-export default function CameraContainer(){
-    const videoRef = useRef(null);
-    const imageCaptureRef = useRef(null);
-    const [cameraReady,setCameraReady]=useState(false);
+import {useEffect} from 'react'
+export default function CameraContainer({videoRef,imageCaptureRef,cameraReady,setCameraReady}){
 
     useEffect(() => {
     if (!cameraReady) return;
@@ -23,12 +20,13 @@ export default function CameraContainer(){
 
   }, [cameraReady]);
 
+
   async function getCamera() {
     const videoData = await navigator.mediaDevices.getUserMedia({
       video: true,
     });
 
-    // videoRef.current.srcObject = videoData;
+    videoRef.current.srcObject = videoData;
 
     const track = videoData.getVideoTracks()[0]
     imageCaptureRef.current = new ImageCapture(track);
@@ -48,6 +46,7 @@ export default function CameraContainer(){
     console.log(arrayBuffer)
     await window.electronAPI.savePhoto(arrayBuffer)
   }
+
 
     return (
       <div 
