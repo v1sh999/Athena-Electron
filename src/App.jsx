@@ -1,7 +1,7 @@
 import CameraContainer from './components/Camera';
 import FullScreenContainer from './components/FullScreen';
 import BottomActions from './components/Actions';
-import TimerContaianer from './components/Timer'
+import TimerContaianer from './components/Timer';
 import "./App.css";
 
 function App() {

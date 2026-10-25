@@ -1,6 +1,6 @@
 export default function FullScreenContainer(){
   async function getFullscreen() {
-    return await window.electronAPI.setFullScreen();
+    await window.electronAPI.setFullScreen();
   }
     return (
       <div className="card-container">
